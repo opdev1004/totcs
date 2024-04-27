@@ -12,11 +12,15 @@ While working on this library, the problems are fixed and the improvement is don
 
 Some cases Tot can cause lots of writing. It is sill better than writing whole file every time. I recommend avoid using HardRemove() or HardUpdate(). They only exist for small files. It is always better when we modify small data with Update() and Remove(). And use Clean() like once a day, a week or a month.
 
+## Documentation
+
+Please read [the rule of format](https://github.com/opdev1004/totcs/tree/main/documents/rules.md) for more information about Tot file format.
+
 ## 🛠 Requirements
 
 Tot CS is built with .net 8.0 and Windows 10. I cannot guarantee that this will work in older versions of Windows and tools.
 
-## 💪 Support Tot
+## 💪 Support Tot CS
 
 ### 👼 Become a Sponsor
 
