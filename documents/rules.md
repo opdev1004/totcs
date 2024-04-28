@@ -49,20 +49,8 @@
 5. Escaping. You can use entities or use your own escaping mechanism.
 
 ```
-// our escaping in manual typing
 <\d:
 <\/d:
-// They are going to converted for you when you call get function.
-<\d: -> <d:
-<\/d: -> </d:
-
-//If you use it within programming language, string:
-// our escaping
-<\\d:
-<\\/d:
-// They are going to converted for you when you call get function.
-<\\d: -> <d:
-<\\/d: -> </d:
 ```
 
 6. The structure of format shound not be changed by version of format.
