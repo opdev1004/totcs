@@ -2,10 +2,8 @@
 {
     public partial class Tot
     {
-        public async Task<bool> QCreateFile(string filename)
+        public static async Task<bool> CreateFileAsync(string filename)
         {
-			await _semaphore.WaitAsync();
-
 			try
             {
 				return await Task.Run(bool () =>
@@ -28,15 +26,11 @@
                         return true;
                     }
 				});
-		    }
+			}
             catch (Exception ex)
             {
                 PrintError(ex.ToString());
                 return false;
-            }
-            finally
-            {
-                _semaphore.Release();
             }
 		}
     }

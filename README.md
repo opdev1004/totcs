@@ -4,6 +4,10 @@ Tot is a file format for managing string data in a file. I would like to say mar
 
 ## 👨‍🏫 Notice
 
+### 🎉 Releasing version 0.0.2
+
+Added CreateFileAsync and IsFileExistsAsync. Changed few things so it can handle some cases. QCreateFile and QIsFileExists are based on async version of functions.
+
 ### 🎉 Releasing first version 0.0.1
 
 While working on this library, the problems are fixed and the improvement is done that is found from Javascript version. Any function starts with Q, they are going to be running in order. This let developers to choose safe file handling with linear processing. Otherwise developer can just use regular static functions with await or developer need to build a system that manage files safely.
@@ -12,13 +16,15 @@ While working on this library, the problems are fixed and the improvement is don
 
 Some cases Tot can cause lots of writing. It is sill better than writing whole file every time. I recommend avoid using HardRemove() or HardUpdate(). They only exist for small files. It is always better when we modify small data with Update() and Remove(). And use Clean() like once a day, a week or a month.
 
-## Documentation
+## 📖 Documents
 
 Please read [the rule of format](https://github.com/opdev1004/totcs/tree/main/documents/rules.md) for more information about Tot file format.
 
+- [Simple API Document](https://github.com/opdev1004/totcs/tree/main/documents/simple_api.md)
+
 ## 🛠 Requirements
 
-Tot CS is built with .net 8.0 and Windows 10. I cannot guarantee that this will work in older versions of Windows and tools.
+Tot CS is built with .net 8.0 and Windows 10. I cannot guarantee that this will work in older versions of Windows or other OS and with other tools.
 
 ## 💪 Support Tot CS
 

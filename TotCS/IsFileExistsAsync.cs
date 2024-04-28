@@ -2,15 +2,13 @@
 {
     public partial class Tot
     {
-        public async Task<bool> QCreateFile(string filename)
+        public static async Task<bool> IsFileExistsAsync(string filename)
         {
-			await _semaphore.WaitAsync();
-
-			try
+            try
             {
-				return await Task.Run(bool () =>
-				{
-					if (string.IsNullOrEmpty(filename))
+                return await Task.Run(bool () =>
+                {
+                    if (string.IsNullOrEmpty(filename))
                     {
                         PrintError("file path may not be appropriate");
                         return false;
@@ -18,26 +16,20 @@
 
                     if (File.Exists(filename))
                     {
-                        PrintError($"{filename} exists");
-                        return false;
+                        return true;
                     }
                     else
                     {
-                        FileStream fs = File.Create(filename);
-                        fs.Close();
-                        return true;
+                        PrintError("file does not exist.");
+                        return false;
                     }
-				});
-		    }
+                });
+            }
             catch (Exception ex)
             {
                 PrintError(ex.ToString());
                 return false;
             }
-            finally
-            {
-                _semaphore.Release();
-            }
-		}
+}
     }
 }

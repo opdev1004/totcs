@@ -5,8 +5,7 @@ namespace UnitTest
 {
     public class Clean
     {
-        Tot tot = new Tot();
-        string filename = "./test.tot";
+		readonly string filename = "./test.tot";
 
         [SetUp]
         public void Setup()
@@ -45,7 +44,7 @@ namespace UnitTest
             await Tot.Push(filename, "test", "This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.This is right name and right data.", Encoding.UTF8, 128);
             await Tot.Update(filename, "test", "This is updated!");
             bool result = await Tot.Clean(filename);
-            Assert.IsTrue(result);
+			Assert.That(result, Is.True);
         }
     }
 }

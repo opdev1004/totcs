@@ -13,10 +13,10 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/opdev1004/totcs</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Tot; Totcs; Data Manager; Database; File Format; DB;</PackageTags>
+    <PackageTags>Tot; Totcs; Data; DataStore; DataStorage; Database; File; Format; DB;</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Version>$(VersionPrefix)0.0.1</Version>
+    <Version>$(VersionPrefix)0.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

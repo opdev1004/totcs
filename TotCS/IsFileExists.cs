@@ -4,19 +4,26 @@
     {
         public static bool IsFileExists(string filename)
         {
-            if (string.IsNullOrEmpty(filename))
-            {
-                PrintError("file path may not be appropriate");
-                return false;
-            }
+            try {
+                if (string.IsNullOrEmpty(filename))
+                {
+                    PrintError("file path may not be appropriate");
+                    return false;
+                }
 
-            if (File.Exists(filename))
+                if (File.Exists(filename))
+                {
+                    return true;
+                }
+                else
+                {
+                    PrintError("file does not exist.");
+                    return false;
+                }
+		    }
+            catch (Exception ex)
             {
-                return true;
-            }
-            else
-            {
-                PrintError("file does not exist.");
+                PrintError(ex.ToString());
                 return false;
             }
         }
