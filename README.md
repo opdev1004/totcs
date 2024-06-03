@@ -4,6 +4,10 @@ Tot is a file format for managing string data in a file. I would like to say mar
 
 ## 👨‍🏫 Notice
 
+### 🎉 Releasing version 0.0.3
+
+Added GetAll and QGetAll. Now you can get the all data in a file at once.
+
 ### 🎉 Releasing version 0.0.2
 
 Added CreateFileAsync and IsFileExistsAsync. Changed few things so it can handle some cases. QCreateFile and QIsFileExists are based on async version of functions.
