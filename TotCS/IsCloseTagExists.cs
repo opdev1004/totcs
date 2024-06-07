@@ -97,7 +97,7 @@ namespace TotCS
                                     margin = chunkLeft - countLeft;
                                 }
 
-                                long streamPosition = positionTracker - margin;
+                                long streamPosition = positionTracker - margin - fileEncoding.GetByteCount(tagEnd);
 
                                 return (true, streamPosition);
                             }

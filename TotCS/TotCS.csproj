@@ -16,7 +16,7 @@
     <PackageTags>Tot; Totcs; Data; DataStore; DataStorage; Database; File; Format; DB;</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Version>$(VersionPrefix)0.0.3</Version>
+    <Version>$(VersionPrefix)0.0.4</Version>
   </PropertyGroup>
 
   <ItemGroup>

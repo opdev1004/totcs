@@ -4,6 +4,10 @@ Tot is a file format for managing string data in a file. I would like to say mar
 
 ## 👨‍🏫 Notice
 
+### 🎉 Releasing version 0.0.4
+
+PLEASE USE THE LATEST VERSION. While I am working with Tot CS I found it is returning wrong position for a closing tag. This will cause a problem for removing tags so please use the latest version.
+
 ### 🎉 Releasing version 0.0.3
 
 Added GetAll and QGetAll. Now you can get the all data in a file at once.
