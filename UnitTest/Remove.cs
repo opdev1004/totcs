@@ -5,20 +5,20 @@ namespace UnitTest
 {
     public class Remove
     {
-        Tot tot = new();
+		readonly Tot tot = new();
         readonly string filename = "./test.tot";
 
         [SetUp]
         public void Setup()
         {
-            if (!Tot.IsFileExists(filename))
+            if (!Tot.IsFileExistsSync(filename))
             {
-                Tot.CreateFile(filename);
+                Tot.CreateFileSync(filename);
             }
             else
             {
                 File.Delete(filename);
-                Tot.CreateFile(filename);
+                Tot.CreateFileSync(filename);
             }
         }
 

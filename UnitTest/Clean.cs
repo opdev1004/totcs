@@ -10,17 +10,17 @@ namespace UnitTest
         [SetUp]
         public void Setup()
         {
-            if (!Tot.IsFileExists(filename))
+            if (!Tot.IsFileExistsSync(filename))
             {
-                Tot.CreateFile(filename);
+                Tot.CreateFileSync(filename);
             }
             else
             {
                 File.Delete(filename);
-                Tot.CreateFile(filename);
+                Tot.CreateFileSync(filename);
             }
 
-            if (Tot.IsFileExists(filename + ".tmp"))
+            if (Tot.IsFileExistsSync(filename + ".tmp"))
             {
                 File.Delete(filename + ".tmp");
             }
@@ -29,11 +29,11 @@ namespace UnitTest
         [OneTimeTearDown]
         public void CleanUp()
         {
-            if (Tot.IsFileExists(filename))
+            if (Tot.IsFileExistsSync(filename))
             {
                 File.Delete(filename);
             }
-            if (Tot.IsFileExists(filename + ".tmp"))
+            if (Tot.IsFileExistsSync(filename + ".tmp"))
             {
                 File.Delete(filename + ".tmp");
             }

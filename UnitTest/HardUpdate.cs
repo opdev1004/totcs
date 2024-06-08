@@ -4,20 +4,19 @@ namespace UnitTest
 {
     public class HardUpdate
     {
-        Tot tot = new Tot();
-        string filename = "./test.tot";
+		readonly string filename = "./test.tot";
 
         [SetUp]
         public void Setup()
         {
-            if (!Tot.IsFileExists(filename))
+            if (!Tot.IsFileExistsSync(filename))
             {
-                Tot.CreateFile(filename);
+                Tot.CreateFileSync(filename);
             }
             else
             {
                 File.Delete(filename);
-                Tot.CreateFile(filename);
+                Tot.CreateFileSync(filename);
             }
         }
 
@@ -33,7 +32,7 @@ namespace UnitTest
         {
             await Tot.Push(filename, "test", "This is right name and right data");
             bool result = await Tot.HardUpdate(filename, "test", "This is updated!");
-            Assert.IsTrue(result);
+			Assert.That(result, Is.True);
         }
     }
 }

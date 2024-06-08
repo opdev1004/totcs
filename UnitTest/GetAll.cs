@@ -10,14 +10,14 @@ namespace UnitTest
         [SetUp]
         public void Setup()
         {
-            if (!Tot.IsFileExists(filename))
+            if (!Tot.IsFileExistsSync(filename))
             {
-                Tot.CreateFile(filename);
+                Tot.CreateFileSync(filename);
             }
             else
             {
                 File.Delete(filename);
-                Tot.CreateFile(filename);
+                Tot.CreateFileSync(filename);
             }
         }
 
@@ -46,7 +46,7 @@ namespace UnitTest
 				Assert.Fail("List must contains 8 items when 8 items are pushed.");
 			}
 
-            Assert.True(totItemList.ItemList[6].Data.Equals("This is right name and right data 7"));
+			Assert.That(totItemList.ItemList[6].Data, Is.EqualTo("This is right name and right data 7"));
 		}
     }
 }
