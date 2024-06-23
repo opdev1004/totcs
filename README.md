@@ -4,22 +4,9 @@ Tot is a file format for managing string data in a file. I would like to say mar
 
 ## 👨‍🏫 Notice
 
-### 🎉 Releasing version 0.0.5
+### 🎉 Releasing version 0.0.6
 
-Updating name of CreateFile, IsFileExists, CreateFileAsync and IsFileExistsAsync. To make things consistent, now asynchronous version is CreateFile and IsFileExists.
-And Synchronous version is CreateFileSync and IsFileExistsSync.
-
-### 🎉 Releasing version 0.0.4
-
-PLEASE USE THE LATEST VERSION. While I am working with Tot CS I found it is returning wrong position for a closing tag. This will cause a problem for removing tags so please use the latest version. It is fixed in this version.
-
-### 🎉 Releasing version 0.0.3
-
-Added GetAll and QGetAll. Now you can get the all data in a file at once.
-
-### 🎉 Releasing version 0.0.2
-
-Added CreateFileAsync and IsFileExistsAsync. Changed few things so it can handle some cases. QCreateFile and QIsFileExists are based on async version of functions.
+PLEASE USE THE LATEST VERSION. There was a small bug that can mess up the processing data when data is bigger than stream count. And it is fixed in this version.
 
 ### 📢 About how you handle data writes
 

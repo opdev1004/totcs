@@ -60,7 +60,8 @@ namespace TotCS
                             if (previousChunk != "")
                             {
                                 processingChunk = previousChunk + chunk;
-                            }
+								previousChunk = "";
+							}
                             else
                             {
                                 processingChunk = chunk;
