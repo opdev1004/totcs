@@ -1,12 +1,20 @@
 # 🥇 Tot CS
 
-Tot is a file format for managing string data in a file. I would like to say markup-like database without indexing. It is using stream and position to efficiently track where the data is. And it is designed to handle massive data. But developer has full control over limitting the size of data in one tag. Eg. 65536 bytes in one tag. Tot is for replacing some jobs that database, JSON and XML do.
+Tot is a database file format for managing string data in a file. I would like to say markup-like database without indexing. It is using stream and position to efficiently track where the data is. And it is designed to handle massive data. But developer has full control over limitting the size of data in one tag. Eg. 65536 bytes in one tag. Tot is for replacing some jobs that database, JSON and XML do.
 
 ## 👨‍🏫 Notice
 
-### 🎉 Releasing version 0.0.6
+### 🎉 Releasing version 0.0.7
 
-PLEASE USE THE LATEST VERSION. There was a small bug that can mess up the processing data when data is bigger than stream count. And it is fixed in this version.
+PLEASE USE THE LATEST VERSION.
+
+1. Now `Clean()` will not create extra `.tmp` file for reserving changes. It still creates 1 `.tmp` file as a backup for safety.
+2. `GetMultipleData()` is now `GetMultiple()` please update them. Queued version is changed as well. Change to `QGetMultiple()`.
+3. `SaveDictAsTot()`, `SaveListAsTot()`, `QSaveDictAsTot()`, `QSaveListAsTot()`, `GetAllByDict()`, `GetAllByList`, `QGetAllByDict()` and `QGetAllByList`.
+
+### 📢 Changes and deprecation in the future
+
+In the future, `GetAll()` may get deprecated or changed. Try `GetAllByDict()`, `GetAllByList`, `QGetAllByDict()` and `QGetAllByList` for your project.
 
 ### 📢 About how you handle data writes
 

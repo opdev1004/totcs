@@ -37,14 +37,14 @@ namespace UnitTest
             await Tot.Push(filename, "test6", "This is right name and right data 6");
             await Tot.Push(filename, "test7", "This is right name and right data 7");
             await Tot.Push(filename, "test8", "This is right name and right data 8");
-            TotItemListWithLastPosition totItemList = await Tot.GetMultipleData(filename, 4);
+            TotItemListWithLastPosition totItemList = await Tot.GetMultiple(filename, 4);
 
             if (totItemList.ItemList.Count != 4)
             {
                 Assert.Fail("List must contains 4 items when 4 items are wanted.");
             }
 
-            totItemList = await Tot.GetMultipleData(filename, 2, totItemList.LastPosition);
+            totItemList = await Tot.GetMultiple(filename, 2, totItemList.LastPosition);
 
             if (totItemList.ItemList.Count != 2)
             {

@@ -41,12 +41,6 @@ namespace TotCS
                     Encoding fileEncoding = encoding ?? Encoding.UTF8;
 
                     string tempFilename = filename + ".tmp";
-
-                    if (File.Exists(tempFilename))
-                    {
-                        File.Move(tempFilename, filename + "_2.tmp", true);
-                    }
-
                     File.Move(filename, tempFilename, true);
 
                     using FileStream readStream = File.Open(tempFilename, FileMode.Open, FileAccess.Read, FileShare.None);

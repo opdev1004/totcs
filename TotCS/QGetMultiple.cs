@@ -4,7 +4,7 @@ namespace TotCS
 {
     public partial class Tot
     {
-        public async Task<TotItemListWithLastPosition> QGetMultipleData(string filename, int count, long position = 0, Encoding? encoding = null, int streamCount = DefaultStreamCount)
+        public async Task<TotItemListWithLastPosition> QGetMultiple(string filename, int count, long position = 0, Encoding? encoding = null, int streamCount = DefaultStreamCount)
         {
             await _semaphore.WaitAsync();
 
@@ -28,7 +28,7 @@ namespace TotCS
 
                 Encoding fileEncoding = encoding ?? Encoding.UTF8;
 
-                TotItemListWithLastPosition result = await ProcessGetMultipleData(filename, count, position, fileEncoding, streamCount);
+                TotItemListWithLastPosition result = await ProcessGetMultiple(filename, count, position, fileEncoding, streamCount);
 
                 return result;
             }

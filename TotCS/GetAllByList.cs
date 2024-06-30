@@ -4,52 +4,39 @@ namespace TotCS
 {
     public partial class Tot
     {
-        public static async Task<TotItemListWithLastPosition> GetMultiple(string filename, int count, long position = 0, Encoding? encoding = null, int streamCount = DefaultStreamCount)
+        public static async Task<List<TotItem>> GetAllByList(string filename, Encoding? encoding = null, int streamCount = DefaultStreamCount)
         {
             try
             {
                 if (streamCount < DefaultStreamMinimum)
                 {
                     PrintError($"stream count cannot be smaller than {DefaultStreamMinimum}");
-                    return new TotItemListWithLastPosition();
-                }
-                if (count < 1)
-                {
-                    PrintError("size cannot be smaller than 1");
-                    return new TotItemListWithLastPosition();
-                }
-                if (position < 0)
-                {
-                    PrintError("position cannot be smaller than 0");
-                    return new TotItemListWithLastPosition();
+                    return [];
                 }
 
                 Encoding fileEncoding = encoding ?? Encoding.UTF8;
 
-                TotItemListWithLastPosition result = await ProcessGetMultiple(filename, count, position, fileEncoding, streamCount);
+				List<TotItem> result = await ProcessGetAllByList(filename, fileEncoding, streamCount);
 
                 return result;
             }
             catch (Exception ex)
             {
                 PrintError(ex.ToString());
-                return new TotItemListWithLastPosition();
-            }
+                return [];
+			}
         }
 
-        private static async Task<TotItemListWithLastPosition> ProcessGetMultiple(string filename, int count, long position = 0, Encoding? encoding = null, int streamCount = DefaultStreamCount)
+        private static async Task<List<TotItem>> ProcessGetAllByList(string filename, Encoding? encoding = null, int streamCount = DefaultStreamCount)
         {
-            return await Task.Run(async Task<TotItemListWithLastPosition>? () =>
+            return await Task.Run(async Task<List<TotItem>>? () =>
             {
                 try
                 {
                     Encoding fileEncoding = encoding ?? Encoding.UTF8;
 
                     bool inTag = false;
-                    TotItemListWithLastPosition result = new();
-                    long lastPosition = -1;
-                    long positionTracker = 0;
-                    int currentCount = 0;
+					List<TotItem> result = [];
 
                     using (FileStream readStream = File.Open(filename, FileMode.Open, FileAccess.Read, FileShare.Read))
                     {
@@ -63,14 +50,6 @@ namespace TotCS
                         int indexEnd = 0;
                         int indexEndTag = 0;
                         byte[] buffer = new byte[streamCount];
-
-                        if (position >= readStream.Length)
-                        {
-                            PrintError("position cannot be bigger or equal than file length");
-                            return new TotItemListWithLastPosition();
-                        }
-
-                        readStream.Position = position;
 
                         while (readStream.Position < readStream.Length)
                         {
@@ -147,30 +126,12 @@ namespace TotCS
                                             data = data[..^1];
                                         }
 
-                                        TotItem item = new()
-                                        {
-                                            Name = tagName,
-                                            Data = data
-                                        };
-                                        result.ItemList.Add(item);
-                                        long chunkLeft = fileEncoding.GetByteCount(processingChunk[(indexEndTag + endTag.Length)..]);
-                                        long margin = chunkLeft - streamCount;
-                                        long countLeft = readStream.Length - positionTracker;
-
-                                        if (countLeft < streamCount)
-                                        {
-                                            margin = chunkLeft - countLeft;
-                                        }
-
-                                        lastPosition = positionTracker - margin;
-                                        result.LastPosition = lastPosition;
-                                        currentCount += 1;
-
-                                        if (currentCount == count)
-                                        {
-                                            readStream.Close();
-                                            return result;
-                                        }
+										TotItem item = new()
+										{
+											Name = tagName,
+											Data = data
+										};
+										result.Add(item);
 
                                         processingChunk = processingChunk[(indexEndTag + endTag.Length)..];
                                         data = "";
@@ -191,8 +152,6 @@ namespace TotCS
                                 readStream.Close();
                                 break;
                             }
-
-                            positionTracker += streamCount;
                         }
                     }
 
@@ -201,8 +160,8 @@ namespace TotCS
                 catch (Exception ex)
                 {
                     PrintError(ex.ToString());
-                    return new TotItemListWithLastPosition();
-                }
+					return [];
+				}
             });
         }
     }
