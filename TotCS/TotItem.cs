@@ -1,8 +1,14 @@
 ﻿namespace TotCS
 {
-    public class TotItem()
+    public struct TotItem
     {
-        public string Name { get; set; } = "";
-        public string Data { get; set; } = "";
+        public string Name { get; set; }
+        public string Data { get; set; }
+
+        public TotItem(string name = "", string data = "")
+        {
+            Name = name;
+            Data = data;
+        }
     }
 }

@@ -4,6 +4,13 @@ Tot is a database file format for managing string data in a file. I would like t
 
 ## 👨‍🏫 Notice
 
+### 🎉 Releasing version 0.0.8
+
+PLEASE USE THE LATEST VERSION.
+
+1. Added support for dotNet 9. Dotnet 8 is going to be supported until it is no longer compatible with the newest version of dotnet.
+2. Changed item data class to be struct for performance.
+
 ### 🎉 Releasing version 0.0.7
 
 PLEASE USE THE LATEST VERSION.
@@ -34,12 +41,7 @@ Tot CS is built with .net 8.0 and Windows 10. I cannot guarantee that this will 
 
 ### 👼 Become a Sponsor
 
-- [Ko-fi](https://ko-fi.com/opdev1004)
 - [Github sponsor page](https://github.com/sponsors/opdev1004)
-
-### 🎁 Shop
-
-- [RB Geargom Shop](https://www.redbubble.com/people/Geargom/shop)
 
 ## 👨‍💻 Author
 
